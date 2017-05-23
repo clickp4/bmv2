@@ -196,10 +196,10 @@ SimpleSwitch::start_and_return() {
   }
   std::thread t3(&SimpleSwitch::transmit_thread, this);
   t3.detach();
-  std::thread t4(&SimpleSwitch::upcall_thread, this);
-  t4.detach();
-  std::thread t5(&SimpleSwitch::hello_thread, this);
-  t5.detach();
+  // std::thread t4(&SimpleSwitch::upcall_thread, this);
+  // t4.detach();
+  // std::thread t4(&SimpleSwitch::hello_thread, this);
+  // t4.detach();
 }
 
 void
@@ -552,64 +552,66 @@ SimpleSwitch::transmit_thread() {
 
     PHV *phv = packet->get_phv();
 
-    Field &f_degist0 = phv->get_field("intrinsic_metadata.degist_receiver0");
-    if (f_degist0.get_int() != 0) {
-      upcall_buffer.push_front(std::move(packet));
-      continue;
-    }
+    if (phv->has_field("intrinsic_metadata.degist_receiver0")) {
+      Field &f_degist0 = phv->get_field("intrinsic_metadata.degist_receiver0");
+      if (f_degist0.get_int() != 0) {
+        upcall_buffer.push_front(std::move(packet));
+        continue;
+      }
 
-    Field &f_degist1 = phv->get_field("intrinsic_metadata.degist_receiver1");
-    if (f_degist1.get_int() != 0) {
-      upcall_buffer.push_front(std::move(packet));
-      continue;
-    }// else 
-    
-    Field &f_degist2 = phv->get_field("intrinsic_metadata.degist_receiver2");
-    if (f_degist2.get_int() != 0) {
-      upcall_buffer.push_front(std::move(packet));
-      continue;
-    }// else 
-        
-    Field &f_degist3 = phv->get_field("intrinsic_metadata.degist_receiver3");
-    if (f_degist3.get_int() != 0) {
-      upcall_buffer.push_front(std::move(packet)); 
-      continue;
-    }// else 
+      Field &f_degist1 = phv->get_field("intrinsic_metadata.degist_receiver1");
+      if (f_degist1.get_int() != 0) {
+        upcall_buffer.push_front(std::move(packet));
+        continue;
+      }// else 
+      
+      Field &f_degist2 = phv->get_field("intrinsic_metadata.degist_receiver2");
+      if (f_degist2.get_int() != 0) {
+        upcall_buffer.push_front(std::move(packet));
+        continue;
+      }// else 
+          
+      Field &f_degist3 = phv->get_field("intrinsic_metadata.degist_receiver3");
+      if (f_degist3.get_int() != 0) {
+        upcall_buffer.push_front(std::move(packet)); 
+        continue;
+      }// else 
 
-    Field &f_degist4 = phv->get_field("intrinsic_metadata.degist_receiver4");
-    if (f_degist4.get_int() != 0) {
-      upcall_buffer.push_front(std::move(packet));
-      continue;
-    }// else 
+      Field &f_degist4 = phv->get_field("intrinsic_metadata.degist_receiver4");
+      if (f_degist4.get_int() != 0) {
+        upcall_buffer.push_front(std::move(packet));
+        continue;
+      }// else 
 
-    Field &f_degist5 = phv->get_field("intrinsic_metadata.degist_receiver5");
-    if (f_degist5.get_int() != 0) {
-      upcall_buffer.push_front(std::move(packet));
-      continue;
-    }// else 
+      Field &f_degist5 = phv->get_field("intrinsic_metadata.degist_receiver5");
+      if (f_degist5.get_int() != 0) {
+        upcall_buffer.push_front(std::move(packet));
+        continue;
+      }// else 
 
-    Field &f_degist6 = phv->get_field("intrinsic_metadata.degist_receiver6");
-    if (f_degist6.get_int() != 0) {
-      upcall_buffer.push_front(std::move(packet));
-      continue;
-    }// else 
+      Field &f_degist6 = phv->get_field("intrinsic_metadata.degist_receiver6");
+      if (f_degist6.get_int() != 0) {
+        upcall_buffer.push_front(std::move(packet));
+        continue;
+      }// else 
 
-    Field &f_degist7 = phv->get_field("intrinsic_metadata.degist_receiver7");
-    if (f_degist7.get_int() != 0) {
-      upcall_buffer.push_front(std::move(packet));
-      continue;
-    }// else 
+      Field &f_degist7 = phv->get_field("intrinsic_metadata.degist_receiver7");
+      if (f_degist7.get_int() != 0) {
+        upcall_buffer.push_front(std::move(packet));
+        continue;
+      }// else 
 
-    Field &f_degist8 = phv->get_field("intrinsic_metadata.degist_receiver8");
-    if (f_degist8.get_int() != 0) {
-      upcall_buffer.push_front(std::move(packet));
-      continue;
-    }// else 
-    
-    Field &f_degist9 = phv->get_field("intrinsic_metadata.degist_receiver9");
-    if (f_degist9.get_int() != 0) {
-      upcall_buffer.push_front(std::move(packet));
-      continue;
+      Field &f_degist8 = phv->get_field("intrinsic_metadata.degist_receiver8");
+      if (f_degist8.get_int() != 0) {
+        upcall_buffer.push_front(std::move(packet));
+        continue;
+      }// else 
+      
+      Field &f_degist9 = phv->get_field("intrinsic_metadata.degist_receiver9");
+      if (f_degist9.get_int() != 0) {
+        upcall_buffer.push_front(std::move(packet));
+        continue;
+      }
     }
   }
 }

@@ -462,7 +462,7 @@ am__relativize = \
     dir1=`echo "$$dir1" | sed -e "$$sed_rest"`; \
   done; \
   reldir="$$dir2"
-ACLOCAL = ${SHELL} /home/netarchlab/onos-p4-dev/onos-bmv2/missing aclocal-1.14
+ACLOCAL = ${SHELL} /home/netarchlab/bmv2/missing aclocal-1.14
 AMTAR = $${TAR-tar}
 AM_CFLAGS = 
 AM_CPPFLAGS =                            -I$(top_srcdir)/include                           -isystem$(top_srcdir)/third_party/jsoncpp/include                           -isystem$(top_srcdir)/third_party/spdlog/include -isystem $(top_srcdir)/third_party \
@@ -471,20 +471,20 @@ AM_CPPFLAGS =                            -I$(top_srcdir)/include                
 AM_CXXFLAGS = -pthread
 AM_DEFAULT_VERBOSITY = 1
 AR = ar
-AUTOCONF = ${SHELL} /home/netarchlab/onos-p4-dev/onos-bmv2/missing autoconf
-AUTOHEADER = ${SHELL} /home/netarchlab/onos-p4-dev/onos-bmv2/missing autoheader
-AUTOMAKE = ${SHELL} /home/netarchlab/onos-p4-dev/onos-bmv2/missing automake-1.14
+AUTOCONF = ${SHELL} /home/netarchlab/bmv2/missing autoconf
+AUTOHEADER = ${SHELL} /home/netarchlab/bmv2/missing autoheader
+AUTOMAKE = ${SHELL} /home/netarchlab/bmv2/missing automake-1.14
 AWK = gawk
-BM_VERSION = 1.0.0-85329ec0
+BM_VERSION = 1.0.0-91b07f03
 CC = gcc
-CCDEPMODE = depmode=none
+CCDEPMODE = depmode=gcc3
 CFLAGS = -g -O2
 COVERAGE_FLAGS = 
 CPP = gcc -E
 CPPFLAGS = 
 CXX = g++
 CXXCPP = g++ -E
-CXXDEPMODE = depmode=none
+CXXDEPMODE = depmode=gcc3
 CXXFLAGS = -g -O2 -std=c++11
 CYGPATH_W = echo
 DEFS = -DHAVE_CONFIG_H
@@ -513,7 +513,7 @@ LIBTOOL = $(SHELL) $(top_builddir)/libtool
 LIPO = 
 LN_S = ln -s
 LTLIBOBJS = 
-MAKEINFO = ${SHELL} /home/netarchlab/onos-p4-dev/onos-bmv2/missing makeinfo
+MAKEINFO = ${SHELL} /home/netarchlab/bmv2/missing makeinfo
 MANIFEST_TOOL = :
 MKDIR_P = /bin/mkdir -p
 NM = /usr/bin/nm -B
@@ -525,10 +525,10 @@ OTOOL64 =
 PACKAGE = bm
 PACKAGE_BUGREPORT = antonin@barefootnetworks.com
 PACKAGE_NAME = bm
-PACKAGE_STRING = bm 1.0.0-85329ec0
+PACKAGE_STRING = bm 1.0.0-91b07f03
 PACKAGE_TARNAME = bm
 PACKAGE_URL = 
-PACKAGE_VERSION = 1.0.0-85329ec0
+PACKAGE_VERSION = 1.0.0-91b07f03
 PATH_SEPARATOR = :
 PYTHON = /usr/bin/python
 PYTHON_EXEC_PREFIX = ${exec_prefix}
@@ -542,11 +542,11 @@ SHELL = /bin/bash
 STRIP = strip
 THRIFT = /usr/local/bin/thrift
 THRIFT_LIB = -lthrift
-VERSION = 1.0.0-85329ec0
-abs_builddir = /home/netarchlab/onos-p4-dev/onos-bmv2/targets/simple_switch/tests
-abs_srcdir = /home/netarchlab/onos-p4-dev/onos-bmv2/targets/simple_switch/tests
-abs_top_builddir = /home/netarchlab/onos-p4-dev/onos-bmv2
-abs_top_srcdir = /home/netarchlab/onos-p4-dev/onos-bmv2
+VERSION = 1.0.0-91b07f03
+abs_builddir = /home/netarchlab/bmv2/targets/simple_switch/tests
+abs_srcdir = /home/netarchlab/bmv2/targets/simple_switch/tests
+abs_top_builddir = /home/netarchlab/bmv2
+abs_top_srcdir = /home/netarchlab/bmv2
 ac_ct_AR = ar
 ac_ct_CC = gcc
 ac_ct_CXX = g++
@@ -576,7 +576,7 @@ host_vendor = unknown
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/netarchlab/onos-p4-dev/onos-bmv2/install-sh
+install_sh = ${SHELL} /home/netarchlab/bmv2/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -698,36 +698,36 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-#include ./$(DEPDIR)/main.Po
-#include ./$(DEPDIR)/test_packet_redirect.Po
-#include ./$(DEPDIR)/test_queueing.Po
-#include ./$(DEPDIR)/test_swap.Po
-#include ./$(DEPDIR)/test_truncate.Po
-#include ./$(DEPDIR)/utils.Po
+include ./$(DEPDIR)/main.Po
+include ./$(DEPDIR)/test_packet_redirect.Po
+include ./$(DEPDIR)/test_queueing.Po
+include ./$(DEPDIR)/test_swap.Po
+include ./$(DEPDIR)/test_truncate.Po
+include ./$(DEPDIR)/utils.Po
 
 .cpp.o:
-#	$(AM_V_CXX)depbase=`echo $@ | sed 's|[^/]*$$|$(DEPDIR)/&|;s|\.o$$||'`;\
-#	$(CXXCOMPILE) -MT $@ -MD -MP -MF $$depbase.Tpo -c -o $@ $< &&\
-#	$(am__mv) $$depbase.Tpo $$depbase.Po
-#	$(AM_V_CXX)source='$<' object='$@' libtool=no 
-#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) 
-	$(AM_V_CXX)$(CXXCOMPILE) -c -o $@ $<
+	$(AM_V_CXX)depbase=`echo $@ | sed 's|[^/]*$$|$(DEPDIR)/&|;s|\.o$$||'`;\
+	$(CXXCOMPILE) -MT $@ -MD -MP -MF $$depbase.Tpo -c -o $@ $< &&\
+	$(am__mv) $$depbase.Tpo $$depbase.Po
+#	$(AM_V_CXX)source='$<' object='$@' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(AM_V_CXX_no)$(CXXCOMPILE) -c -o $@ $<
 
 .cpp.obj:
-#	$(AM_V_CXX)depbase=`echo $@ | sed 's|[^/]*$$|$(DEPDIR)/&|;s|\.obj$$||'`;\
-#	$(CXXCOMPILE) -MT $@ -MD -MP -MF $$depbase.Tpo -c -o $@ `$(CYGPATH_W) '$<'` &&\
-#	$(am__mv) $$depbase.Tpo $$depbase.Po
-#	$(AM_V_CXX)source='$<' object='$@' libtool=no 
-#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) 
-	$(AM_V_CXX)$(CXXCOMPILE) -c -o $@ `$(CYGPATH_W) '$<'`
+	$(AM_V_CXX)depbase=`echo $@ | sed 's|[^/]*$$|$(DEPDIR)/&|;s|\.obj$$||'`;\
+	$(CXXCOMPILE) -MT $@ -MD -MP -MF $$depbase.Tpo -c -o $@ `$(CYGPATH_W) '$<'` &&\
+	$(am__mv) $$depbase.Tpo $$depbase.Po
+#	$(AM_V_CXX)source='$<' object='$@' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(AM_V_CXX_no)$(CXXCOMPILE) -c -o $@ `$(CYGPATH_W) '$<'`
 
 .cpp.lo:
-#	$(AM_V_CXX)depbase=`echo $@ | sed 's|[^/]*$$|$(DEPDIR)/&|;s|\.lo$$||'`;\
-#	$(LTCXXCOMPILE) -MT $@ -MD -MP -MF $$depbase.Tpo -c -o $@ $< &&\
-#	$(am__mv) $$depbase.Tpo $$depbase.Plo
-#	$(AM_V_CXX)source='$<' object='$@' libtool=yes 
-#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) 
-	$(AM_V_CXX)$(LTCXXCOMPILE) -c -o $@ $<
+	$(AM_V_CXX)depbase=`echo $@ | sed 's|[^/]*$$|$(DEPDIR)/&|;s|\.lo$$||'`;\
+	$(LTCXXCOMPILE) -MT $@ -MD -MP -MF $$depbase.Tpo -c -o $@ $< &&\
+	$(am__mv) $$depbase.Tpo $$depbase.Plo
+#	$(AM_V_CXX)source='$<' object='$@' libtool=yes \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(AM_V_CXX_no)$(LTCXXCOMPILE) -c -o $@ $<
 
 mostlyclean-libtool:
 	-rm -f *.lo

@@ -41,8 +41,8 @@ int
 main(int argc, char* argv[]) {
 
   target_parser = new TargetParserBasic();
-  target_parser->add_string_option(cp_ip_opt_name, cp_ip_opt_help);
-  target_parser->add_int_option(cp_port_opt_name, cp_port_opt_help);
+  // target_parser->add_string_option(cp_ip_opt_name, cp_ip_opt_help);
+  // target_parser->add_int_option(cp_port_opt_name, cp_port_opt_help);
 
   simple_switch = new SimpleSwitch();
     
@@ -57,7 +57,7 @@ main(int argc, char* argv[]) {
 
   target_parser->get_string_option(cp_ip_opt_name, &cp_ip);
   target_parser->get_int_option(cp_port_opt_name, &cp_port);
-  simple_switch->init_cp_client(cp_ip, cp_port);
+  // simple_switch->init_cp_client(cp_ip, cp_port);
 
   int thrift_port = simple_switch->get_runtime_port();
 
